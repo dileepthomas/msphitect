@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import * as productActions from '../../actions/productActions'
 import Product from './atoms/product'
 import Loader from '../atoms/Spinner/Spinner'
+import './products.css'
 
 class Products extends Component {
     componentDidMount() {
@@ -14,7 +15,7 @@ class Products extends Component {
         const { products } = this.props
         return (
             <Fragment>
-                <div className="product-list-container">
+                <div className="product-parent-container">
                     {
                         products.length > 0 ?
                             products.map(product => {

@@ -1,0 +1,11 @@
+.product-parent-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-child-container{ 
+    flex: 1 0 21%; 
+    margin: 5px;
+    height: 100px;
+    border: 1px solid black;
+}
