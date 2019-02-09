@@ -12,18 +12,21 @@ class Products extends Component {
 
 
     render() {
-        const { products } = this.props
+        const { products, addItemHandler, removeItemHandler } = this.props
         return (
             <Fragment>
                 <div className="product-parent-container">
                     {
                         products.length > 0 ?
-                            products.map(product => {
+                            products.map((product, index) => {
                                 return (
                                     <Product
+                                        key={index}
                                         name={product.name}
                                         price={product.price}
                                         weight={product.weight}
+                                        addItem={addItemHandler}
+                                        removeItem={removeItemHandler}
                                     />
                                 )
                             })
@@ -38,6 +41,7 @@ class Products extends Component {
 
 
 const mapStateToProps = (state) => {
+    console.log(state.productsReducer.items)
     return {
         products: state.productsReducer.productsData
     }
@@ -46,6 +50,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         init: () => dispatch(productActions.getProductData()),
+        addItemHandler: (itemName) => dispatch(productActions.addItem(itemName)),
+        removeItemHandler: (itemName) => dispatch(productActions.removeItem(itemName))
     }
 }
 

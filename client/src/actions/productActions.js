@@ -29,3 +29,18 @@ export const getProductData = () => dispatch => {
             })
         })
 }
+
+export const addItem = (itemName) => dispatch => {
+    dispatch({
+        type:actionTypes.ADD_ITEM,
+        payload: itemName
+    })
+}
+
+export const removeItem = (itemName) => dispatch => {
+    dispatch({
+        type: actionTypes.REMOVE_ITEM,
+        payload: itemName
+    })
+}
+    
