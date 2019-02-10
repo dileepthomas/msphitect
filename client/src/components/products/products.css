@@ -1,6 +1,7 @@
 .product-parent-container{
     display: flex;
     flex-wrap: wrap;
+    flex: 1;
 }
 
 .product-child-container{ 

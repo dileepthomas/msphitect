@@ -12,12 +12,12 @@ class Products extends Component {
 
 
     render() {
-        const { products, addItemHandler, removeItemHandler } = this.props
+        const { products, productsLoaderStatus, addItemHandler, removeItemHandler } = this.props
         return (
             <Fragment>
                 <div className="product-parent-container">
                     {
-                        products.length > 0 ?
+                        products.length > 0 && !productsLoaderStatus ?
                             products.map((product, index) => {
                                 return (
                                     <Product
@@ -41,9 +41,9 @@ class Products extends Component {
 
 
 const mapStateToProps = (state) => {
-    console.log(state.productsReducer.items)
     return {
-        products: state.productsReducer.productsData
+        products: state.productsReducer.productsData,
+        productsLoaderStatus: state.productsReducer.productsLoaderStatus
     }
 }
 

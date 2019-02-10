@@ -1,17 +1,36 @@
-import React from 'react'
+import React, { Component, Fragment } from 'react'
+import {connect} from 'react-redux'
 
-const product = ({ name, price, weight, removeItem, addItem }) => {
-    return (
-        <div className="product-child-container">
-            <p>{name}</p>
-            <p>{price}</p>
-            <p>{weight}</p>
-            <p>
-                <button onClick={() => removeItem(name)} name="remove-item">-</button>
-                <button onClick={() => addItem(name)} name="add-item">+</button>
-            </p>
-        </div>
-    )
+class Product extends Component {
+    render() {
+        const {name, price, weight, removeItem, addItem, selectedItems} = this.props
+        return (
+            <div className="product-child-container">
+                <p>Product Name: {name}</p>
+                <p>Price: {price} $</p>
+                <p>Weight: {weight}</p>
+                <p>
+                    <button onClick={() => removeItem(name)} name="remove-item">-</button>
+                    <Fragment>
+                        {
+                            selectedItems[name] ? 
+                                `Added ${selectedItems[name]} ${selectedItems[name] === 1 ? "item" : "item's" }` 
+                                :
+                                null
+                        }
+                    </Fragment>
+                    <button onClick={() => addItem(name)} name="add-item">+</button>
+                </p>
+            </div>
+        )
+    }
 }
 
-export default product
+const mapStateToProps = (state) =>  {
+    return {
+        selectedItems: state.productsReducer.items
+    }
+}
+
+
+export default connect(mapStateToProps)(Product)
