@@ -1,7 +1,8 @@
 const fs = require('fs')
 
-class ProductService {
-    getProductList(){
+class CheckoutService {
+
+    getCourierCharges(){
         try {
             const data = fs.readFileSync(`${__dirname}/../MetaData.json`, { encoding: "utf8" })
             const parsedData = JSON.parse(data)
@@ -12,4 +13,4 @@ class ProductService {
     }
 }
 
-module.exports = ProductService
+module.exports = CheckoutService
