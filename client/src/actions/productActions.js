@@ -43,4 +43,11 @@ export const removeItem = (itemName) => dispatch => {
         payload: itemName
     })
 }
+
+export const storeSelectedItems = (selectedItems) => dispatch => {
+    dispatch({
+        type: actionTypes.STORE_SELECTED_ITEMS,
+        payload: selectedItems
+    })
+}
     
