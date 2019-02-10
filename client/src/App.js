@@ -1,16 +1,18 @@
-import React, { Component } from 'react';
-import './App.css';
-import Products from './components/products/products'
-import OrderSummary from './components/orderSummary/orderSummary'
-
+import React, { Component, Fragment } from "react";
+import "./App.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from "./components/pages/home";
+import Checkout from "./components/pages/checkout";
 
 class App extends Component {
   render() {
     return (
-     <div className="product-app-container">
-      <Products /> 
-      <OrderSummary />
-     </div>
+      <Router>
+        <Fragment>
+          <Route path="/" component={Home} />
+          <Route path="/checkout" component={Checkout} />
+        </Fragment>
+      </Router>
     );
   }
 }
