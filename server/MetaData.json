@@ -254,19 +254,27 @@
     "courierCharges": [
         {
             "category": "0 to 200g",
-            "charge": 5
+            "charge": 5,
+            "min": 0,
+            "max": 200
         },
         {
             "category": "200 to 500g",
-            "charge": 10
+            "charge": 10,
+            "min":200,
+            "max": 500
         },
         {
             "category": "500 to 1000g",
-            "charge": 15
+            "charge": 15,
+            "min": 500,
+            "max": 1000
         },
         {
             "category": "1000g   to 5000g",
-            "charge": 20
+            "charge": 20,
+            "min": 1000,
+            "max": 5000
         }
     ]
 }
